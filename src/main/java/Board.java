@@ -1,6 +1,6 @@
 public class Board {
-    Shape[][] list;
-    int boardSize;
+    private Shape[][] list;
+    private int boardSize;
 
     public Board(int boardSize){
         this.boardSize = boardSize;
@@ -9,10 +9,9 @@ public class Board {
     }
 
     public boolean add(Shape shape, int x, int y){
-
         try {
             if (this.list[x][y] == null){
-                    this.list[y][x] = shape;
+                    this.list[x][y] = shape;
                 return true;
             }
 
@@ -43,41 +42,29 @@ public class Board {
 
         double totalArea = 0;
 
-
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                if (list[i][j] != null) {
-                    if (list[i][j] instanceof Circle) {
-                        totalArea += Math.PI * ((Circle) list[i][j]).radius * ((Circle) list[i][j]).radius;
-                    }
-                    totalArea += ((Rectangle) list[i][j]).width * ((Rectangle) list[i][j]).length;
-
-                }
-            }
-        }
-
-
-//            for (int i = 0; i < list.length; i++) {
-//                for (int j = 0; j < list[i].length; j++) {
-//                    if (list[i][j] != null){
-////                        if (list[i][j] instanceof Circle){
-////                            Circle circle = (Circle) list[i][j];
-////                            totalArea += circle.getArea();
-////                        }
-//                        totalArea += list[i][j].getArea();
-//
-//                        System.out.println(list[i][j].toString());
+        // not me trying to do everything manually here hehehe
+//        for (int i = 0; i < boardSize; i++) {
+//            for (int j = 0; j < boardSize; j++) {
+//                if (list[i][j] != null) {
+//                    if (list[i][j] instanceof Circle) {
+//                        totalArea += Math.PI * ((Circle) list[i][j]).radius * ((Circle) list[i][j]).radius;
 //                    }
+//                    totalArea += ((Rectangle) list[i][j]).width * ((Rectangle) list[i][j]).length;
 //
-////                    totalArea += (list[i][j] != null ? list[i][j].getArea() : 0);
 //                }
 //            }
+//        }
+            for (int i = 0; i < list.length; i++) {
+                for (int j = 0; j < list[i].length; j++) {
+                    if (list[i][j] != null){
+                        totalArea += list[i][j].getArea();
+                    }
+                }
+            }
         return totalArea;
     }
 
     public Shape[][] getGrid(){
         return list;
     }
-
-
 }

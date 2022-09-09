@@ -3,10 +3,7 @@ import java.util.Objects;
 
 public class Rectangle extends Shape{
 
-    double width, length;
-    public Rectangle(Color color) {
-        super(color);
-    }
+    private double width, length;
 
     public Rectangle(Color color, double width, double length) {
         super(color);

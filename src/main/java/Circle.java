@@ -3,11 +3,8 @@ import java.util.Objects;
 
 public class Circle extends Shape {
 
-    double radius;
+    private double radius;
 
-    public Circle(Color color) {
-        super(color);
-    }
 
     public Circle(Color color, double radius){
         super(color);
